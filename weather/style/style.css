@@ -1,15 +1,16 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: #fbf7ec url("../images/sea.png") no-repeat 50% 6.5em;
   color: #125a70;
-
 }
+
+/*search field*/
 
 input{
   width: 15em;
   padding: .5em;
   font-size: 1em;
+  text-align: left;
 }
 
 #submit{
@@ -17,80 +18,106 @@ input{
   font-size: .8em;
   border: 0px;
   background-color: white;
+  margin-top: .2em;
 }
 
-#display{
-  width: 40%;
-  height: 22em;
-  text-align: center;
+
+/*responsive */
+.wrapper {
+  width: 100%;
   margin: 0 auto;
-  padding-top: 13em;
+}
+
+.wrapper_cold{
+  background: #fff url("../images/snow.jpg") no-repeat center;
+}
+
+.wrapper_normal{
+  background: #fff url("../images/mist.jpg") no-repeat center;
+}
+
+.wrapper_hot{
+  background: #fff url("../images/sea.jpg") no-repeat center;
+}
+
+.imageWrapper{
+  position: relative;
+  width: 28em;
+  margin: 9em auto;
+  border-radius: 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.imageWrapper:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.content {
+  position: absolute;
+  top:17%;
+  margin:0 auto;
+  width: 100%;
 }
 
 .groupInfo{
   width: 100%;
-  padding: 4em 0 0 1em;
+  padding-left: 2em;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border-radius: 1%;
 }
 
 .info{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 45%;
+  text-align: center;
 }
 
 #temp{
   font-size: 8em;
-  /*padding: .2em 0em;*/
 }
 
 #location, #desc, #minTemp, #maxTemp{
   font-size: 1.5em;
   margin: .2em 0em;
-  padding: .1em;
   display: inline-block;
 }
 
 #location, #desc{
-  padding-right: 2em;
+  padding: .2em;
 }
 
-#desc{
-  margin-top: -.05em;
-}
-
-
-.blue {
-  color:blue;
-}
-.red{
-  color: red;
+#minTemp, #maxTemp{
+  margin-top: .5em;
 }
 
 .navlarge{
   position: absolute;
+  top:0;
   width: 100%;
-  height: 360px;
+  height: 370px;
   text-align: center;
   padding-top: 20em;
   background-color: white;
+  z-index: 100;
+
 }
 
 .navsmall{
-  position: absolute;
-  width: 100%;
   height: 40px;
   text-align: right;
-  padding: 1.2em;
+  padding: .75em;
+  margin-top: 0;
   background-color: white;
   animation-name: resize;
   animation-duration: 1s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
 }
 
 
@@ -102,3 +129,6 @@ input{
     height: 40px;
   }
 }
+
+
+

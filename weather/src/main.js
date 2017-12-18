@@ -41,6 +41,7 @@ $(document).ready(function() {
 
   //GRAB THE DATA
   var getData = function (data){
+    // console.log(data);
     // console.log('inside getData', data.main.temp_min);
     // console.log('inside getData', data.main.temp_max);
     // console.log('inside getData', data.main.temp);
@@ -52,15 +53,19 @@ $(document).ready(function() {
     var minTemp = data.main.temp_min.toFixed();
     var maxTemp = data.main.temp_max.toFixed();
 
-    //Temp turns red if over 90 and turns blue if under 40
+    //images changes depending on the temp
     if(temp > 90){
-    $('#temp').addClass('red');
-    }else if
-    (temp < 40){
-    $('#temp').addClass('blue');
-    }
-    manipulateDom(location, temp, desc, minTemp, maxTemp)
+      $('.imageWrapper').addClass('wrapper_hot');
+      }else if
+      (temp > 41 && temp < 89){
+      $('.imageWrapper').addClass('wrapper_normal');
+      }else if
+      (temp < 40){
+      $('.imageWrapper').addClass('wrapper_cold');
+      }
+      manipulateDom(location, temp, desc, minTemp, maxTemp)
   }
+
 
 //Displays returned info in the Dom
   var manipulateDom = function(location, temp, desc, minTemp, maxTemp){
@@ -72,6 +77,7 @@ $(document).ready(function() {
     $('#maxTemp').html(maxTemp + "&deg");
   }
 
+//animate display
   $( "#submit" ).click(function() {
     $(".navlarge").addClass("navsmall", 5000, "easeOut");
   });
@@ -79,7 +85,7 @@ $(document).ready(function() {
 //submit on enter
   $(document).on('keyup', function(e){
       var key = e.which;
-      if(key == 13)  // the enter key ascii code
+      if(key == 13)
       {
          $("#submit").click();
       }
